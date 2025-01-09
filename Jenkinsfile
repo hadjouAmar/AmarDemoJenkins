@@ -4,7 +4,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     environment {
-        JAVA_HOME = "C:\\Program Files\\Java\\jdk-21"
+        JAVA_HOME = "C:\Program Files (x86)\Java\jre-1.8"
     }
     stages {
         stage('Build') {
