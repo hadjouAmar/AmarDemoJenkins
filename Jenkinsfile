@@ -4,6 +4,17 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
+        
+        stage('Check Java Version') {
+    steps {
+        bat 'java -version'
+        bat 'javac -version'
+    }
+}
+        
+        
+        
+        
         stage('Build') {
             steps {
                 bat 'mvn -B -DskipTests clean package'
