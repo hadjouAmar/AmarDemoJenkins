@@ -6,16 +6,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                // Remplacez sh par bat pour une compatibilité avec Windows
+                bat 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                // Remplacez sh par bat pour la commande test
+                bat 'mvn test'
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    // Il peut être nécessaire d'ajuster le chemin des rapports JUnit si vous utilisez Maven sur Windows
+                    junit 'target\\surefire-reports\\*.xml'
                 }
             }
         }
