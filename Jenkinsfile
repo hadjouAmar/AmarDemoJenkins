@@ -12,7 +12,11 @@ pipeline {
     }
 }
         
-        
+  stage('Check Maven Version') {
+    steps {
+        bat 'mvn -v'
+    }
+}      
         
         
         stage('Build') {
