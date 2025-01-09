@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        jdk 'JDK23'
+        jdk 'JDK23'  // Utilisez le nom que vous avez donné à votre JDK dans Jenkins
     }
     options {
         skipStagesAfterUnstable()
@@ -9,12 +9,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                bat 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
