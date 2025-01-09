@@ -3,22 +3,10 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
+    environment {
+        JAVA_HOME = "C:\Program Files (x86)\Java\jre-1.8"  // Mettez ici le chemin vers le JDK 21
+    }
     stages {
-        
-        stage('Check Java Version') {
-    steps {
-        bat 'java -version'
-        bat 'javac -version'
-    }
-}
-        
-  stage('Check Maven Version') {
-    steps {
-        bat 'mvn -v'
-    }
-}      
-        
-        
         stage('Build') {
             steps {
                 bat 'mvn -B -DskipTests clean package'
@@ -36,4 +24,3 @@ pipeline {
         }
     }
 }
-
